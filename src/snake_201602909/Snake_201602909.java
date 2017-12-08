@@ -55,6 +55,9 @@ public class Snake_201602909
             jugador[ContadorJugadores]=Player;
             ContadorJugadores++;
             
+            Tablero_201602909 Tab = new Tablero_201602909(35,70);
+            Tab.ImprimirTablero();
+           
             break;
             case 2:
             break;
