@@ -20,7 +20,7 @@ public class Snake_201602909
     public static String Nombre;
     public static int FechaN;
     public static int ScoreinGame;
-    
+   
     public static void main(String[] args)
     {
     int opcion;
@@ -55,7 +55,7 @@ public class Snake_201602909
             jugador[ContadorJugadores]=Player;
             ContadorJugadores++;
             
-            Tablero_201602909 Tab = new Tablero_201602909(35,70);
+            Tablero_201602909 Tab = new Tablero_201602909(35,70,40,30,20);
             Tab.ImprimirTablero();
            
             break;

@@ -5,6 +5,8 @@
  */
 package snake_201602909;
 
+import static snake_201602909.Snake_201602909.jugador;
+
 /**
  *
  * @author edgom
@@ -13,13 +15,23 @@ public class Tablero_201602909
 {
 private String Tablero[][];
 private int  Fila;
-private int Columna;
-   public Tablero_201602909(int f,int c)
+private int Columna; 
+private int GF;
+private int BF;
+private int PA;
+
+   public Tablero_201602909(int f,int c,int gf,int bf,int pa)
    {
    this.Fila = f;
    this.Columna = c;
+   this.GF = gf;
+   this.BF = bf;
+   this.PA = pa;
    Tablero = new String[Fila][Columna];
    InicializarTablero();
+   GoodFood();
+   BadFood();
+   ParedAleatoria();
    }
    public void InicializarTablero()
    {
@@ -42,6 +54,35 @@ private int Columna;
         }
    }
    }
+   
+   public void GoodFood()
+   {
+   for(int i=0;i<GF;i++)
+   {
+   int f = (int)(Math.random()*Fila);
+   int c = (int)(Math.random()*Columna);
+   Tablero[f][c] = "%";
+   }
+   }
+   public void BadFood()
+   {
+   for(int j=0;j<BF;j++)
+   {
+   int f = (int)(Math.random()*Fila);
+   int c = (int)(Math.random()*Columna);
+   Tablero[f][c] = "$";
+   }
+   }
+   public void ParedAleatoria()
+   {
+   for(int k=0;k<PA;k++)
+   {
+   int f = (int)(Math.random()*Fila);
+   int c = (int)(Math.random()*Columna);
+   Tablero[f][c] = "#";  
+   }
+   }
+   
    public void ImprimirTablero()
    {
    System.out.println("\n\n");
@@ -53,7 +94,16 @@ private int Columna;
         }
         System.out.println();
    }
-   System.out.println("\n\n");
-   System.out.println("******************************************************");
+   System.out.println("\n");
+   System.out.println("**********************************************************************");
+   for(int i=0; i<jugador.length;i++)
+   {
+   System.out.println("*   Jugador: "+jugador[i].getNombre()+"                                                       *");
+   System.out.println("*   Fecha de Nacimiento: "+jugador[i].getFechaNacimiento()+"                                           *");
+   System.out.println("*   Score: "+jugador[i].getScore()+"                                                         *");
+   break;
+   }
+   System.out.println("**********************************************************************");
+   System.out.println("\n");
    }  
 }
