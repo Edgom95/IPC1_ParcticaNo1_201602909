@@ -23,16 +23,28 @@ private int Columna;
    }
    public void InicializarTablero()
    {
-   for(int i=0; i<Tablero.length;i++)
+   for(int i=0; i<Fila;i++)
    {
-        for(int j=0; j<Tablero.length;j++)
+        for(int j=0; j<Columna;j++)
         {
-        Tablero[i][j]="#";
+        if((j==0)||(j==69))
+        {    
+        Tablero[i][j]= "#"; 
+        }
+        else if((i==Fila-1)||(i==Fila-35))
+        {
+        Tablero[i][j]= "#";
+        }
+        else
+        {
+        Tablero[i][j]= ".";
+        }
         }
    }
    }
    public void ImprimirTablero()
    {
+   System.out.println("\n\n");
    for(int i=0; i<Fila;i++)
    {
         for(int j=0; j<Columna;j++)
@@ -41,5 +53,7 @@ private int Columna;
         }
         System.out.println();
    }
-   }
+   System.out.println("\n\n");
+   System.out.println("******************************************************");
+   }  
 }
