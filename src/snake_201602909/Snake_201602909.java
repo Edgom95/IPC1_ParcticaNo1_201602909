@@ -6,7 +6,11 @@
 package snake_201602909;
 
 import java.io.IOException;
+import static snake_201602909.Main_201602909.ScoreinGame;
+import static snake_201602909.Main_201602909.opcion;
 import static snake_201602909.Main_201602909.opg;
+import static snake_201602909.Tablero_201602909.Columna;
+import static snake_201602909.Tablero_201602909.Fila;
 import static snake_201602909.Tablero_201602909.Tablero;
 
 /**
@@ -18,6 +22,9 @@ public class Snake_201602909
 {
 public static int X;
 public static int Y;
+public static int Score=10;
+public static int Mov;
+
 
    public Snake_201602909(int x,int y)
    {
@@ -30,7 +37,7 @@ public static int Y;
     }
 
     public void setX(int X) {
-        this.X = X;
+        Snake_201602909.X = X;
     }
 
     public int getY() {
@@ -38,9 +45,9 @@ public static int Y;
     }
 
     public void setY(int Y) {
-        this.Y = Y;
+        Snake_201602909.Y = Y;
     } 
-   
+
     public void Snake()
     {
     Tablero[X][Y]="@";
@@ -49,21 +56,25 @@ public static int Y;
     {
     setX(X-1);
     setY(Y);
+    Mov++;
     }
     public void SnakeAbajo()
     {
     setX(X+1);
     setY(Y);
+    Mov++;
     } 
     public void SnakeIzq()
     {
     setX(X);
     setY(Y-1);
+    Mov++;
     } 
     public void SnakeDer()
     {
     setX(X);
     setY(Y+1);
+    Mov++;
     }
     public void MoverSnake() throws IOException
     {
@@ -86,8 +97,36 @@ public static int Y;
         SnakeDer();
         break;
         case 'm':
-        System.exit(0);
+        ScoreinGame=100;
         break;
+    }
+    }
+    
+    public void SnakeEat()
+    {
+    for(int i=0;i<Fila;i++)
+    {
+       for(int j=0;j<Columna;j++)
+       {
+          if(Tablero[i][j].equals("@"))
+          {
+            if((Tablero[i][j].equals("@"))&&(Tablero[i][j].equals("%")))
+            {
+            Tablero[i][j]="@";
+            ScoreinGame = Score+10;
+            }
+            else if((Tablero[i][j].equals("@"))&&(Tablero[i][j].equals("$")))
+            {
+            Tablero[i][j]="@";
+            ScoreinGame = Score+10;
+            }
+            else
+            {
+            Tablero[i][j]=".";
+            }
+          
+          }
+       }
     }
     }
 }

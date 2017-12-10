@@ -7,9 +7,7 @@ package snake_201602909;
 
 import java.io.IOException;
 import static snake_201602909.Main_201602909.jugador;
-import static snake_201602909.Snake_201602909.X;
-import static snake_201602909.Snake_201602909.Y;
-
+import static snake_201602909.Snake_201602909.Mov;
 /**
  *
  * @author edgom
@@ -18,25 +16,27 @@ public class Tablero_201602909
 {
 public static String Tablero[][];
 public static Snake_201602909 sk = new Snake_201602909(16,35);
-private int  Fila;
-private int Columna; 
+public static int Fila;
+public static int Columna; 
 private int GF;
 private int BF;
 private int PA;
 
    public Tablero_201602909(int f,int c,int gf,int bf,int pa) throws IOException
    {
-   this.Fila = f;
-   this.Columna = c;
+   Tablero_201602909.Fila = f;
+   Tablero_201602909.Columna = c;
    this.GF = gf;
    this.BF = bf;
    this.PA = pa;
-   Tablero = new String[Fila][Columna];
+   
+   Tablero = new String[Fila][Columna];   
    InicializarTablero();
-   LlenadoRandom();    
+   LlenadoRandom();
    sk.Snake();
+   sk.SnakeEat();
    }
-   public void InicializarTablero() throws IOException
+   public void InicializarTablero()
    {
    for(int i=0; i<Fila;i++)
    {
@@ -101,8 +101,9 @@ private int PA;
    for(int i=0; i<jugador.length;i++)
    {
    System.out.println("     Jugador: "+jugador[i].getNombre());
-   System.out.println("     Fecha de Nacimiento: "+jugador[i].getFechaNacimiento());
    System.out.println("     Score: "+jugador[i].getScore());
+   System.out.println("     Movimientos: "+Mov);
+   
    break;
    }
    System.out.println("**********************************************************************");
@@ -110,8 +111,8 @@ private int PA;
    }  
    public void LlenadoRandom()
    {
-   GoodFood();
-   BadFood();
-   ParedAleatoria();
+    GoodFood();
+    BadFood();
+    ParedAleatoria();
    }
 }

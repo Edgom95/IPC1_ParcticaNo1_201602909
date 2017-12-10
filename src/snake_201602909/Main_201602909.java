@@ -7,6 +7,7 @@ package snake_201602909;
 
 import java.io.IOException;
 import java.util.Scanner;
+import static snake_201602909.Snake_201602909.Score;
 import static snake_201602909.Tablero_201602909.sk;
 
 /**
@@ -21,15 +22,15 @@ public class Main_201602909
     public static Jugador_201602909 jugador[] = new Jugador_201602909[5]; 
     public static String Nombre;
     public static int FechaN;
-    public static int ScoreinGame=10;
-    public int Contador;
+    public static int ScoreinGame=0;
+    public static int opcion = 0;
     public static char opg;
     public boolean Victoria;
     
    
     public static void main(String[] args) throws IOException
     {
-    int opcion = 0;
+    
     sn = new Scanner(System.in);
     
     for(int j=0;j<jugador.length;j++)
@@ -37,7 +38,7 @@ public class Main_201602909
     jugador[j]= new Jugador_201602909();
     }
     
-    while((opcion==0)||(opcion==1)||(opcion==2)||(opcion==3))
+    while(opcion<=3)
     {
         System.out.println("**********************************************************************");
         System.out.println("*                      1.Iniciar Juego                               *");
@@ -57,16 +58,16 @@ public class Main_201602909
             System.out.println(" Ingrese su Fecha de Nacimiento: ");
             FechaN = sn.nextInt();
             
-            Jugador_201602909 Player = new Jugador_201602909(Nombre,FechaN,ScoreinGame);
+            Jugador_201602909 Player = new Jugador_201602909(Nombre,FechaN,Score);
             jugador[ContadorJugadores]=Player;
             ContadorJugadores++;
             
-            do
+            while(Juego())
             {
             Tablero_201602909 Tab = new Tablero_201602909(35,70,40,30,20);
             Tab.ImprimirTablero();
             sk.MoverSnake();
-            }while(Juego());
+            }
            
             break;
             case 2:
