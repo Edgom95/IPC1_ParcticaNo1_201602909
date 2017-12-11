@@ -22,11 +22,11 @@ public class Main_201602909
     public static Jugador_201602909 jugador[] = new Jugador_201602909[5]; 
     public static String Nombre;
     public static int FechaN;
-    public static int ScoreinGame=0;
+    public static int ScoreinGame=10;
+    public static int ScoreVic;
     public static int opcion = 0;
     public static char opg;
     public boolean Victoria;
-    
    
     public static void main(String[] args) throws IOException
     {
@@ -64,11 +64,21 @@ public class Main_201602909
             
             while(Juego())
             {
-            Tablero_201602909 Tab = new Tablero_201602909(35,70,40,30,20);
-            Tab.ImprimirTablero();
-            sk.MoverSnake();
+            Score=ScoreinGame;
+            Player.setScore(Score);
+            Jugar();
+            Player.setScore(Score);
+            if(Score==20)
+            {
+            System.out.println("    Ganaste!!!   ");
+            ScoreVic=100;
             }
-           
+            else if(Score==0)
+            {
+            System.out.println("    Perdiste!!!   ");
+            ScoreVic=100;
+            }
+            }
             break;
             case 2:
             break;
@@ -95,7 +105,7 @@ public class Main_201602909
     
     public static boolean Juego()
     {
-    if(ScoreinGame==100)
+    if(ScoreVic==100)
     {
     return false;
     }
@@ -111,6 +121,13 @@ public class Main_201602909
 
     public static void setScoreinGame(int ScoreinGame) {
         Main_201602909.ScoreinGame = ScoreinGame;
+    }
+   
+    public static void Jugar() throws IOException
+    {
+     Tablero_201602909 Tab = new Tablero_201602909(35,70,40,30,20);
+     Tab.ImprimirTablero();       
+     sk.MoverSnake();       
     }
     
 }

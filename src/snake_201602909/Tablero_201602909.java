@@ -5,9 +5,10 @@
  */
 package snake_201602909;
 
-import java.io.IOException;
+import static snake_201602909.Main_201602909.ScoreinGame;
 import static snake_201602909.Main_201602909.jugador;
 import static snake_201602909.Snake_201602909.Mov;
+import static snake_201602909.Snake_201602909.Score;
 /**
  *
  * @author edgom
@@ -22,7 +23,7 @@ private int GF;
 private int BF;
 private int PA;
 
-   public Tablero_201602909(int f,int c,int gf,int bf,int pa) throws IOException
+   public Tablero_201602909(int f,int c,int gf,int bf,int pa)
    {
    Tablero_201602909.Fila = f;
    Tablero_201602909.Columna = c;
@@ -32,7 +33,6 @@ private int PA;
    
    Tablero = new String[Fila][Columna];   
    InicializarTablero();
-   LlenadoRandom();
    sk.Snake();
    sk.SnakeEat();
    }
@@ -54,8 +54,9 @@ private int PA;
         {
         Tablero[i][j]= ".";
         }
-        }
+        }  
    }
+   LlenadoRandom();
    }
    
    public void GoodFood()

@@ -6,8 +6,8 @@
 package snake_201602909;
 
 import java.io.IOException;
+import static snake_201602909.Main_201602909.ScoreVic;
 import static snake_201602909.Main_201602909.ScoreinGame;
-import static snake_201602909.Main_201602909.opcion;
 import static snake_201602909.Main_201602909.opg;
 import static snake_201602909.Tablero_201602909.Columna;
 import static snake_201602909.Tablero_201602909.Fila;
@@ -22,9 +22,8 @@ public class Snake_201602909
 {
 public static int X;
 public static int Y;
-public static int Score=10;
+public static int Score;
 public static int Mov;
-
 
    public Snake_201602909(int x,int y)
    {
@@ -97,7 +96,7 @@ public static int Mov;
         SnakeDer();
         break;
         case 'm':
-        ScoreinGame=100;
+        ScoreVic=100;
         break;
     }
     }
@@ -110,21 +109,14 @@ public static int Mov;
        {
           if(Tablero[i][j].equals("@"))
           {
-            if((Tablero[i][j].equals("@"))&&(Tablero[i][j].equals("%")))
-            {
-            Tablero[i][j]="@";
-            ScoreinGame = Score+10;
+          if((Tablero[i+1][j].equals("%"))||((Tablero[i][j+1].equals("%")))||((Tablero[i-1][j].equals("%")))||((Tablero[i][j-1].equals("%")))||(Tablero[i+1][j+1].equals("%"))||(Tablero[i-1][j-1].equals("%"))||(Tablero[i+1][j-1].equals("%"))||(Tablero[i-1][j+1].equals("%")))
+            {    
+            Score = ScoreinGame+10;
             }
-            else if((Tablero[i][j].equals("@"))&&(Tablero[i][j].equals("$")))
-            {
-            Tablero[i][j]="@";
-            ScoreinGame = Score+10;
+            else if((Tablero[i][j].equals("$"))||((Tablero[i][j+1].equals("$")))||((Tablero[i-1][j].equals("$")))||((Tablero[i][j-1].equals("$")))||(Tablero[i+1][j+1].equals("$"))||(Tablero[i-1][j-1].equals("$"))||(Tablero[i+1][j-1].equals("$"))||(Tablero[i-1][j+1].equals("$")))
+            {       
+            Score = ScoreinGame-10;
             }
-            else
-            {
-            Tablero[i][j]=".";
-            }
-          
           }
        }
     }
