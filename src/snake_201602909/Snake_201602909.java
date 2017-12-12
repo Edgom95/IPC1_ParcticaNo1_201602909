@@ -8,6 +8,7 @@ package snake_201602909;
 import java.io.IOException;
 import static snake_201602909.Main_201602909.ScoreVic;
 import static snake_201602909.Main_201602909.ScoreinGame;
+import static snake_201602909.Main_201602909.Snake;
 import static snake_201602909.Main_201602909.opg;
 import static snake_201602909.Tablero_201602909.Columna;
 import static snake_201602909.Tablero_201602909.Fila;
@@ -49,7 +50,7 @@ public static int Mov;
 
     public void Snake()
     {
-    Tablero[X][Y]="@";
+    Tablero[X][Y]=Snake;
     }
     public  void SnakeArriba()
     {
@@ -77,7 +78,7 @@ public static int Mov;
     }
     public void MoverSnake() throws IOException
     {
-    System.out.println("***************************************************");
+    System.out.println("**********************************************************************");
     System.out.println(" Selecciona un Movimiento....");
     opg = (char)System.in.read();
     
@@ -107,10 +108,10 @@ public static int Mov;
     {
        for(int j=0;j<Columna;j++)
        {
-          if(Tablero[i][j].equals("@"))
+          if(Tablero[i][j].equals(Snake))
           {
           if((Tablero[i+1][j].equals("%"))||((Tablero[i][j+1].equals("%")))||((Tablero[i-1][j].equals("%")))||((Tablero[i][j-1].equals("%")))||(Tablero[i+1][j+1].equals("%"))||(Tablero[i-1][j-1].equals("%"))||(Tablero[i+1][j-1].equals("%"))||(Tablero[i-1][j+1].equals("%")))
-            {    
+            { 
             Score = ScoreinGame+10;
             }
             else if((Tablero[i][j].equals("$"))||((Tablero[i][j+1].equals("$")))||((Tablero[i-1][j].equals("$")))||((Tablero[i][j-1].equals("$")))||(Tablero[i+1][j+1].equals("$"))||(Tablero[i-1][j-1].equals("$"))||(Tablero[i+1][j-1].equals("$"))||(Tablero[i-1][j+1].equals("$")))

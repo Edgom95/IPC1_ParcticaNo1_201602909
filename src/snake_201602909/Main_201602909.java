@@ -14,32 +14,32 @@ import static snake_201602909.Tablero_201602909.sk;
  *
  * @author edgom
  */
+
+
 public class Main_201602909 
 {
-    
     public static Scanner sn; 
     public static int ContadorJugadores=0;
-    public static Jugador_201602909 jugador[] = new Jugador_201602909[5]; 
+    public static Jugador_201602909 jugador[] = new Jugador_201602909[3]; 
     public static String Nombre;
     public static int FechaN;
     public static int ScoreinGame=10;
     public static int ScoreVic;
     public static int opcion = 0;
+    public static String Snake="@";
     public static char opg;
     public boolean Victoria;
    
     public static void main(String[] args) throws IOException
     {
-    
     sn = new Scanner(System.in);
+         for(int j=0;j<jugador.length;j++)
+         {
+         jugador[j]= new Jugador_201602909();
+         }
     
-    for(int j=0;j<jugador.length;j++)
-    {
-    jugador[j]= new Jugador_201602909();
-    }
-    
-    while(opcion<=3)
-    {
+        while(opcion<=3)
+        {
         System.out.println("**********************************************************************");
         System.out.println("*                      1.Iniciar Juego                               *");
         System.out.println("*                      2.Regresar al Juego                           *");
@@ -70,12 +70,22 @@ public class Main_201602909
             Player.setScore(Score);
             if(Score==20)
             {
-            System.out.println("    Ganaste!!!   ");
+            Player.setScore(Score);
+            System.out.println("**********************************************************************");
+            System.out.println("\n");
+            System.out.println("    Ganaste !!!   ");
+            System.out.println("\n");
+            System.out.println("**********************************************************************");
             ScoreVic=100;
             }
             else if(Score==0)
             {
-            System.out.println("    Perdiste!!!   ");
+            Player.setScore(Score);
+            System.out.println("**********************************************************************");
+            System.out.println("\n");
+            System.out.println("    Perdiste !!!   ");
+            System.out.println("\n");
+            System.out.println("**********************************************************************");
             ScoreVic=100;
             }
             }
@@ -93,14 +103,14 @@ public class Main_201602909
     }
     public static void Historial()
     {
-    for(int i=0;i<jugador.length;i++) 
-            {
-            System.out.println("*********************************************");
-            System.out.print("Nombre: " +jugador[i].getNombre() + "\n" 
-                           + "Fecha de Nacimiento: " + jugador[i].getFechaNacimiento() + "\n" 
-                           + "Score: " + jugador[i].getScore() + "\n\n");
-            System.out.println("*********************************************");
-            } 
+       for(int i=0;i<jugador.length;i++) 
+       {
+       System.out.println("**********************************************************************");
+       System.out.print("Nombre: " +jugador[i].getNombre() + "\n" 
+                      + "Fecha de Nacimiento: " + jugador[i].getFechaNacimiento() + "\n" 
+                      + "Score: " + jugador[i].getScore() + "\n\n");
+       System.out.println("**********************************************************************");
+       } 
     }
     
     public static boolean Juego()

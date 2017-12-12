@@ -5,7 +5,6 @@
  */
 package snake_201602909;
 
-import static snake_201602909.Main_201602909.ScoreinGame;
 import static snake_201602909.Main_201602909.jugador;
 import static snake_201602909.Snake_201602909.Mov;
 import static snake_201602909.Snake_201602909.Score;
@@ -102,13 +101,11 @@ private int PA;
    for(int i=0; i<jugador.length;i++)
    {
    System.out.println("     Jugador: "+jugador[i].getNombre());
-   System.out.println("     Score: "+jugador[i].getScore());
+   System.out.println("     Score: "+Score);
    System.out.println("     Movimientos: "+Mov);
-   
    break;
    }
    System.out.println("**********************************************************************");
-   System.out.println("\n");
    }  
    public void LlenadoRandom()
    {
